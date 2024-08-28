@@ -1,0 +1,50 @@
+version: '0.3'
+
+services:
+  web:
+    build: .
+    depends_on:
+      - mysql
+    container_name: serverApache851
+    restart: unless-stopped
+    ports:
+      - "8851:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - ALLOW_OVERRIDE=true
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=ProjetBack
+  mysql:
+    image: mariadb
+    container_name: serverMySQL851
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    ports:
+      - "3851:3306"
+    # volumes:
+      # - ./ressources/database/bddtotal.sql:/docker-entrypoint-initdb.d/bddtotal.sql
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: serverPHPMyAdmin851
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+    ports:
+      - "7851:80"
+  serverratchet:
+    build: ./bin
+    container_name: serverPhpRatchet
+    depends_on: 
+      - mysql
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./bin:/var/www/html

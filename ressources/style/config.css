@@ -1,0 +1,64 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    display: grid;
+    min-height: 100vh;
+    background: url('../img/epicportal.png') no-repeat #020202;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+body{
+    margin: auto;
+    display: grid;
+    width: 85%;
+    height: 90%;
+    grid-template-rows: 40% 55% 5%; 
+    background: rgba(17, 17, 17, 0.2);
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 0 10px rgba(0,0, 0, .2);
+    color:#fff;
+    border-radius: 10px;
+
+}
+
+header{
+    grid-row: 1;
+}
+footer{
+    grid-row: 3;
+}
+
+.empty{
+    display: none;
+  }
+
+.class-main{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 80% 20%; 
+    grid-template-rows: 30% 50% 20%;
+    background-color: #020202;
+
+}
+.loggin{
+    grid-row:1/span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}
+
+

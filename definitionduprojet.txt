@@ -1,0 +1,14 @@
+Objectif 1:
+Gestion de compte ( création, modification, supression,  connexion, deconnexion, attribution des roles) 
+
+Objectif 2: 
+-chat de disccussion instantané (chat globale, privé ( de groupe, 1v1).
+
+Objectif 3:
+-gestion de contacts
+	(ajout de contact, supression, blacklist, remove blacklist).
+
+
+Architecture & techno:
+ 	html/js/css/php/sql
+
